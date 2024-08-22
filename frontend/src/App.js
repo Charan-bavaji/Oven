@@ -39,6 +39,7 @@ import ProcessOrder from './component/Admin/ProcessOrder';
 import UsersList from './component/Admin/UsersLists';
 import UpdateUser from './component/Admin/UpdateUser';
 import ProductReviews from './component/Admin/ProductReviews';
+import Navbar from './component/layout/Header/Navbar.js';
 // import Headers2 from './component/layout/Header/Header2';
 
 // Error
@@ -70,7 +71,8 @@ function App() {
   return (
     <Router>
 
-      <Header />
+      {/* <Header /> */}
+      <Navbar />
       {/* <Headers2 /> */}
       {isAuthenticated && <UserOptions user={user} />}
 

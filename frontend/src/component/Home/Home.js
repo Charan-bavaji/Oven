@@ -9,6 +9,8 @@ import Loader from "../layout/Loader"
 import { useAlert } from 'react-alert';
 import ProductCard from './ProductCard.js';
 import { Link } from 'react-router-dom';
+import Hero from './Hero.js';
+
 
 
 const Home = () => {
@@ -32,21 +34,14 @@ const Home = () => {
             {loading ? (<Loader />) : <Fragment>
 
                 <MetaData title="Furnitures" />
-
-                <Link to="/products">
-                    <div className="banner1">
-                        <img src='./banner.png' alt='img' />
+                <Hero />
+                <div className="text-gray-600 w-full h-auto flex justify-center items-center flex-col " >
+                    <div className='w-full md:w-[80%] flex flex-col justify-center items-center text-2xl text-center gap-4 py-10 tracking-wide '>
+                        <span>We've got unlimited reason for you to love us - mouth-watering pizzas, exciting appetizers, and tasty desserts! If you're craving for delicious food, we've got just the thing for you!</span>
+                        <span>Visit Us and Explore Best Pizza!</span>
+                        <span>A Venture by MILLENNIAL HOSPITALITY VENTURES PRIVATE LIMITED</span>
                     </div>
-                </Link>
-
-                <h1 className='homeHeading'>Room Furniture</h1>
-                <p className='des'>The essence of every home is in the living room. What adds character to it is
-                    the living room furniture that represents your taste, comfort, and style. Anywhere from sleek modern
-                    furniture to elegant wooden furniture, buying the ones that suit your needs is just a scroll and a
-                    click away when you purchase furniture online. As one of the best online furniture stores, Wakefit has
-                    living room furniture, work from home furniture, bedroom furniture, and an array of furniture that are
-                    aesthetic and functional to suit all your needs.</p>
-
+                </div>
                 <h2 className="homeHeading">Top Rated Furnitures</h2>
 
                 <div className="container" id="container">

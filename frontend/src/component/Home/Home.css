@@ -3,7 +3,12 @@
   flex-direction: column;
   color: rgb(251, 188, 174);
 }
-
+.pizzaVectors {
+  background-image: url("../../images/pizzaVector.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .des {
   display: flex;
   justify-content: center;
@@ -28,7 +33,7 @@
 }
 
 .banner {
-  background-image: linear-gradient(to right, #FFDAB9, pink);
+  background-image: linear-gradient(to right, #ffdab9, pink);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -53,17 +58,17 @@
   font-size: 3rem !important;
 }
 
-.banner>h1 {
+.banner > h1 {
   margin: 5vmax;
 
   font: 600 2.5vmax "Roboto";
 }
 
-.banner>p {
+.banner > p {
   font: 300 1.4vmax "Lucida Sans";
 }
 
-.banner>a>button {
+.banner > a > button {
   margin-bottom: 5vmax;
   cursor: pointer;
   background-color: white;
@@ -75,7 +80,7 @@
   font: 500 1vmax "Roboto";
 }
 
-.banner>a>button:hover {
+.banner > a > button:hover {
   background-color: rgba(255, 255, 255, 0);
   color: white;
   font-family: cursive;
@@ -104,7 +109,6 @@
   color: rgb(0, 0, 0, 0.7);
 } */
 
-
 .container {
   display: flex;
   margin: 2vmax auto;
@@ -125,11 +129,11 @@
   padding-bottom: 0.5vmax;
 }
 
-.productCard>img {
+.productCard > img {
   width: 14vmax;
 }
 
-.productCard>div {
+.productCard > div {
   margin: 0.5vmax;
   display: flex;
   justify-content: flex-start;
@@ -141,14 +145,14 @@
   font: 300 0.7vmax "Roboto";
 }
 
-.productCard>p {
+.productCard > p {
   font-family: "Roboto";
   font-size: 1.2vmax;
   margin: 1vmax 0.5vmax;
   margin-bottom: 0;
 }
 
-.productCard>span {
+.productCard > span {
   margin: 0.5vmax;
   color: rgb(5, 159, 255);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -162,20 +166,20 @@
 }
 
 @media screen and (max-width: 600px) {
-  .productCard>p {
+  .productCard > p {
     font-size: 1.7vmax;
   }
 
-  .productCard>div {
+  .productCard > div {
     margin: 0vmax;
     display: block;
   }
 
-  .productCard>span {
+  .productCard > span {
     font-size: 1.5vmax;
   }
 
-  .productCard>div>span {
+  .productCard > div > span {
     margin: 0 0.5vmax;
     font: 300 1vmax "Roboto";
   }
