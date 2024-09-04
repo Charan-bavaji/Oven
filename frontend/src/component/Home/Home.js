@@ -10,6 +10,7 @@ import { useAlert } from 'react-alert';
 import ProductCard from './ProductCard.js';
 import { Link } from 'react-router-dom';
 import Hero from './Hero.js';
+import ItemCard from './ItemCard.js';
 
 
 
@@ -42,14 +43,19 @@ const Home = () => {
                         <span>A Venture by MILLENNIAL HOSPITALITY VENTURES PRIVATE LIMITED</span>
                     </div>
                 </div>
-                <h2 className="homeHeading">Top Rated Furnitures</h2>
+                <h2 className="homeHeading">IN THE <b className='text-orange-400'>TOP</b>PINGS</h2>
 
                 <div className="container" id="container">
 
-                    {products && products.map((product) => <ProductCard key={product._id} product={product} />)}
+                    {/* {products && products.map((product) => <ProductCard key={product._id} product={product} />)} */}
+                    {products && products.map((product) => <ItemCard key={product._id} product={product} />)}
+                </div>
+                <div className='w-full flex justify-center items-center'>
+                    <Link to={"/products"} className="px-10 py-3 text-lg rounded-xl text-black  bg-orange-400 font-semibold tracking-wider">
+                        Menu
+                    </Link>
 
                 </div>
-
             </Fragment>}
         </Fragment>
     );

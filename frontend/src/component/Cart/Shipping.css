@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: black;
 }
 
 .shippingBox {
@@ -16,12 +17,13 @@
 }
 
 .shippingHeading {
+  width: auto;
   text-align: center;
-  color: rgba(0, 0, 0, 0.664);
-  font: 400 1.3vmax "Roboto";
-  padding: 1.3vmax;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.205);
-  width: 50%;
+  color: #ffb448;
+  font: 400 2vmax "Matemasie";
+  padding-top: 1.3vmax;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.205); */
+  /* width: 50%; */
   margin: auto;
 }
 
@@ -36,14 +38,14 @@
   transition: all 0.5s;
 }
 
-.shippingForm>div {
+.shippingForm > div {
   display: flex;
   width: 100%;
   align-items: center;
 }
 
-.shippingForm>div>input,
-.shippingForm>div>select {
+.shippingForm > div > input,
+.shippingForm > div > select {
   padding: 1vmax 4vmax;
   padding-right: 1vmax;
   width: 100%;
@@ -54,7 +56,7 @@
   outline: none;
 }
 
-.shippingForm>div>svg {
+.shippingForm > div > svg {
   position: absolute;
   transform: translateX(1vmax);
   font-size: 1.6vmax;
@@ -63,19 +65,20 @@
 
 .shippingBtn {
   border: none;
-  background-color: rgb(5, 159, 255);
-  color: white;
-  font: 300 1vmax "Roboto";
+  background-color: #ed9e4b;
+  color: rgb(0, 0, 0);
+  font: 300 1vmax "Roboto" bold;
   width: 100%;
   padding: 1vmax;
   cursor: pointer;
   transition: all 0.5s;
   outline: none;
   margin: 2vmax;
+  border-radius: 5px;
 }
 
 .shippingBtn:hover {
-  background-color: rgb(179, 66, 46);
+  background-color: #ffb448;
 }
 
 @media screen and (max-width: 600px) {
@@ -93,13 +96,13 @@
     padding: 11vw;
   }
 
-  .shippingForm>div>input,
-  .shippingForm>div>select {
+  .shippingForm > div > input,
+  .shippingForm > div > select {
     padding: 5vw 10vw;
     font: 300 4vw cursive;
   }
 
-  .shippingForm>div>svg {
+  .shippingForm > div > svg {
     font-size: 6vw;
     transform: translateX(3vw);
   }

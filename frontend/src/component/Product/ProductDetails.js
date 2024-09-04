@@ -18,6 +18,8 @@ import {
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstant";
+import item1 from "../../images/Home-Banner-Pizza.png"
+import { Link } from 'react-router-dom';
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -91,7 +93,7 @@ const ProductDetails = () => {
         readOnly: true,
         precision: 0.5,
     };
-
+    console.log(quantity);
 
 
     return (
@@ -99,95 +101,85 @@ const ProductDetails = () => {
             {loading ? (<Loader />) : (<Fragment>
                 <MetaData title={`${product.name}---Myntra`} />
 
-                <div className="ProductDetails">
-                    <div>
-                        {/* <Carousel> */}
-                        {product.images &&
-                            product.images.map((item, i) => (
-                                <img className="CarouselImage"
-                                    key={item.url}
-                                    src={item.url}
-                                    alt={`${i} Slide`}
-                                />
-                            ))}
-                        {/* </Carousel> */}
-                    </div>
-
-                    <div>
-                        <div className="detailsBlock-1">
-                            <h2>{product.name}</h2>
-                            <p>Product # {product._id}</p>
-                        </div>
-                        <div className="detailsBlock-2">
-                            <Rating {...options} />
-                            <span className='detailsBlock-2-span'>
-                                {product.numOfReviews} (Reviews)
-                            </span>
-                        </div>
-                        <div className="detailsBlock-3">
-                            <h1>{`₹${product.price}`}</h1>
-                            <div className="detailsBlock-3-1">
-                                <div className="detailsBlock-3-1-1">
-                                    <button onClick={decreaseQuantity} >-</button>
-                                    <input readOnly type="number" value={quantity} />
-                                    <button onClick={increaseQuantity} >+</button>
-                                </div>
-                                <button disabled={product.stock < 1 ? true : false} onClick={addToCartHandler}>
-                                    Add to Cart
-                                </button>
+                <div className=" w-full h-auto flex justify-baseline items-center flex-col bg-no-repeat text-black">
+                    <div className=" w-[95%] h-[auto] py-6  flex justify-center items-center rounded-2xl md:w-[80%]">
+                        <div className="flex justify-center items-center flex-col p-5 gap-[3rem] md:flex-row sm:gap-[1rem] md:gap-[10rem]">
+                            <div className=" max-w-sm max-h-fit lg:max-w-lg  overflow-hidden ">
+                                {product.images && product.images.map((item, i) => (
+                                    <img key={i} src={item.url} alt='img' width={400} height={400} />
+                                ))}
                             </div>
+                            <div className="max-w-sm  flex justify-start items-start flex-col gap-6 sm:gap-5 md:gap-7 lg:max-w-md xl:max-w-2xl xl:p-5">
+                                <div className=''>
+                                    <span className=" mb-[-3px] text-xs text-gray-600 tracking-[1px] lg:text-xs">{product._id}</span>
+                                    {/* <span className=" text-3xl text-[#c59b5c] font-bold md:text-4xl lg:text-5xl xl:text-7xl">{product.name}</span> */}
+                                    <h1 className=' text-3xl font-[900] text-[#000000] lg:py-6 tracking-[1px] md:text-4xl lg:text-5xl xl:text-6xl '>{product.name}</h1>
+                                    <div className="detailsBlock-2">
+                                        <Rating {...options} />
+                                        <span className='detailsBlock-2-span'>
+                                            {product.numOfReviews} (Reviews)
+                                        </span>
+                                    </div>
+                                    <p className=" text-[10px] lg:text-[16px] lg:pb-4 tracking-wider font-light leading-normal border-b-2">
+                                        {product.description}</p>
+                                    <h1 className=' font-bold text-yellow-400 text-3xl'>{`₹${product.price}`}</h1>
+                                    <div className="detailsBlock-3-1 border-b-2">
+                                        <div className="detailsBlock-3-1-1 flex ">
+                                            <button onClick={decreaseQuantity} >-</button>
+                                            <h1 className='px-10 text-black text-3xl'>{quantity}</h1>
+                                            <button onClick={increaseQuantity} >+</button>
+                                        </div>
+                                        <button disabled={product.stock < 1 ? true : false} onClick={addToCartHandler}>
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                    <span className='flex gap-2'>
+                                        <p>Status:</p>
+                                        <p className={product.stock < 1 ? "redColor" : "greenColor"}>
+                                            {product.stock < 1 ? "OutOfStock" : "InStock"}
+                                        </p>
+                                    </span>
+                                    <Dialog
+                                        aria-labelledby="simple-dialog-title"
+                                        open={open}
+                                        onClose={submitReviewToggle}
+                                    >
+                                        <DialogTitle>Submit Review</DialogTitle>
+                                        <DialogContent className="submitDialog">
+                                            <Rating
+                                                onChange={(e) => setRating(e.target.value)}
+                                                value={rating}
+                                                size="large"
+                                            />
 
-                            <p>
-                                Status:
-                                <b className={product.stock < 1 ? "redColor" : "greenColor"}>
-                                    {product.stock < 1 ? "OutOfStock" : "InStock"}
-                                </b>
-                            </p>
+                                            <textarea
+                                                className="submitDialogTextArea"
+                                                cols="30"
+                                                rows="5"
+                                                value={comment}
+                                                onChange={(e) => setComment(e.target.value)}
+                                            ></textarea>
+                                        </DialogContent>
+                                        <DialogActions>
+                                            <Button onClick={submitReviewToggle} color="secondary">
+                                                Cancel
+                                            </Button>
+                                            <Button onClick={reviewSubmitHandler} color="primary">
+                                                Submit
+                                            </Button>
+                                        </DialogActions>
+                                    </Dialog>
+                                    <div>
+                                        <button onClick={submitReviewToggle} className="submitReview">
+                                            Submit Review
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div className="detailsBlock-4">
-                            Description : <p>{product.description}</p>
-                        </div>
-
-                        <button onClick={submitReviewToggle} className="submitReview">
-                            Submit Review
-                        </button>
                     </div>
+                    {/* <Example /> */}
                 </div>
-                <h4 className='reviewsHeading'>REVIEWS</h4>
-
-                <Dialog
-                    aria-labelledby="simple-dialog-title"
-                    open={open}
-                    onClose={submitReviewToggle}
-                >
-                    <DialogTitle>Submit Review</DialogTitle>
-                    <DialogContent className="submitDialog">
-                        <Rating
-                            onChange={(e) => setRating(e.target.value)}
-                            value={rating}
-                            size="large"
-                        />
-
-                        <textarea
-                            className="submitDialogTextArea"
-                            cols="30"
-                            rows="5"
-                            value={comment}
-                            onChange={(e) => setComment(e.target.value)}
-                        ></textarea>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={submitReviewToggle} color="secondary">
-                            Cancel
-                        </Button>
-                        <Button onClick={reviewSubmitHandler} color="primary">
-                            Submit
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-
-
                 {product.reviews && product.reviews[0] ? (
                     <div className='reviews'>
                         {product.reviews &&

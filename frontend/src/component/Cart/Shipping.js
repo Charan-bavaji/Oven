@@ -49,7 +49,7 @@ const Shipping = ({ history }) => {
 
             <div className="shippingContainer">
                 <div className="shippingBox">
-                    <h2 className="shippingHeading">Shipping Details</h2>
+                    <h2 className="shippingHeading"><span className='text-black font-[Matemasie]'>Shipping </span>Details</h2>
                     <form
                         className="shippingForm"
                         encType="multipart/form-data"

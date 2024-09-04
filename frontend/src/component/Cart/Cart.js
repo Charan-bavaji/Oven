@@ -38,7 +38,7 @@ const Cart = ({ history }) => {
     }
 
     return (
-        <Fragment>
+        <div className=' mt-10'>
             {cartItems.length === 0 ?
                 (<div className='emptyCart'>
                     <ReactmoveShoppingCartIcon />
@@ -59,12 +59,13 @@ const Cart = ({ history }) => {
                                 <div className='cartInput'>
                                     <button onClick={() =>
                                         decreaseQuantity(item.product, item.quantity)}>-</button>
-                                    <input type="number" value={item.quantity} readOnly />
+                                    <h1 className='px-5 text-black text-lg'>{item.quantity}</h1>
+
                                     <button
                                         onClick={() =>
                                             increaseQuantity(item.product, item.quantity, item.stock)}>+</button>
                                 </div>
-                                <p className='cartSubtotal'>{`Rs${item.price * item.quantity}`}</p>
+                                <p className='cartSubtotal text-xl'>{`Rs${item.price * item.quantity}`}</p>
                             </div>
                         ))}
 
@@ -83,7 +84,7 @@ const Cart = ({ history }) => {
                         </div>
                     </div>
                 </Fragment>}
-        </Fragment>
+        </div>
     );
 };
 

@@ -4,28 +4,32 @@ import appStore from "../../../images/Appstore.png";
 import "./Footer.css";
 const Footer = () => {
     return (
-        <footer id="footer">
+        <footer id="footer" className=' flex flex-col md:flex-row sm:flex-col'>
             <div className="leftFooter">
-                <h1>Freshly Baked...</h1>
-                <p>Hand Decorated</p>
-                <h3>WelCome</h3>
-                <p>560083, 1st Floor,  07 Cross, 21th Main,HSR layout, Bangalore, Karnnataka</p>
+                <h2>About</h2>
+                <p className=' p-0 m-0'>Our Story</p>
+                <p className=' p-0 m-0'>Insights</p>
+                <p className=' p-0 m-0'>FAQ</p>
             </div>
 
             <div className="midFooter">
-                <h1>Fusion Cakes</h1>
-                <p> The CakeZone desserts are undoubtedly the most delicious.
+                <div className="py-6 my-4 pl-3">
+                    <span id='font' className="font-sans text-[3rem] flex justify-center items-center logoFont text-black">Oven <h1 className='logoFont text-yellow-500'>
+                        House
+                    </h1></span>
+                </div>
+                <p> The italiyna foods are undoubtedly the most delicious.
                 </p>
-                <p>^^ Enjoy the Cup love ^^ </p>
+                <p>^^ Enjoy the deserts and pizza ^^ </p>
 
-                <p>Copyrights 2022 &copy; Ramya GK</p>
+                <p>Copyrights 2022 &copy; Maimoona</p>
             </div>
 
             <div className="rightFooter">
                 <h4>Follow Us</h4>
-                <a href="http://instagram.com/__ramya.gowda__">Instagram</a>
-                <a href="http://youtube.com/Cupcakes">Youtube</a>
-                <a href="http://instagram.com/_ramya.gowda_">Facebook</a>
+                <a href="http://instagram.com/">Instagram</a>
+                <a href="http://youtube.com">Youtube</a>
+                <a href="http://instagram.com">Facebook</a>
             </div>
         </footer>
     );

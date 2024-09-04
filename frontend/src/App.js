@@ -73,6 +73,7 @@ function App() {
 
       {/* <Header /> */}
       <Navbar />
+      
       {/* <Headers2 /> */}
       {isAuthenticated && <UserOptions user={user} />}
 
@@ -82,7 +83,6 @@ function App() {
         </Elements>
       )}
       <Switch>
-
         <Route exact path="/" component={Home} />
 
         <Route exact path="/product/:id" component={ProductDetails} />

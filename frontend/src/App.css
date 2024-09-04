@@ -9,6 +9,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* #ed9e4b orange
+#ffb448 yellow */
+
 .logoFont {
   font-family: "Matemasie", sans-serif;
   font-weight: 400;

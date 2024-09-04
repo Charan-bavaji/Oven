@@ -7,6 +7,7 @@ import ProductCard from '../Home/ProductCard';
 import Pagination from "react-js-pagination"
 import { useAlert } from 'react-alert';
 import MetaData from '../layout/MetaData';
+import ItemCard from '../Home/ItemCard';
 // import Typography from "@material-ui/core/Typography";
 
 const categories = [
@@ -42,29 +43,34 @@ const Products = () => {
     }, [dispatch, currrentPage, category, alert, error])
 
     return (
-        <Fragment>
+        <div>
             {loading ? <Loader /> :
-                <Fragment>
-                    <MetaData title="Products --- Myntra" />
-                    <h2 className='productsHeading'>Products</h2>
-                    <div className='categoryBar'>
-                        {/* <Typography>Categories</Typography> */}
-                        <ul className='categoryBox'>
-                            {categories.map((category) => (
-                                <li
-                                    className='category-link'
-                                    key={category}
-                                    onClick={() => setCategory(category)}>
-                                    {category}
-                                </li>
-                            ))}
-                        </ul>
+                <div >
+                    <MetaData title="Menu" />
+                    <div className='flex flex-col md:flex-row'>
+                        <div className='categoryBar'>
+                            {/* <Typography>Categories</Typography> */}
+                            <h1 className='text-black p-0 text-[16px] md:p-4 md:mt-32 md:text-[2rem] md:pl-20 font-bold'>Categories</h1>
+                            <ul className='flex flex-row md:flex-col md:justify-start md:items-center md:w-[20rem] sticky'>
+                                {categories.map((category) => (
+                                    <li
+                                        className='category-link'
+                                        key={category}
+                                        onClick={() => setCategory(category)}>
+                                        {category}
+                                    </li>
+                                ))}
+                            </ul>
 
-                    </div>
-                    <div className='products'>
-                        {products.map((product) => (
-                            <ProductCard key={product._id} product={product} />
-                        ))}
+                        </div>
+                        <div>
+                            <h2 className='productsHeading font-sans text-[3rem] flex justify-center items-center logoFont text-yellow-500 '>Menu</h2>
+                            <div className='products'>
+                                {products.map((product) => (
+                                    <ItemCard key={product._id} product={product} />
+                                ))}
+                            </div>
+                        </div>
                     </div>
                     {resultPerPage < productsCount && <div className='paginationBox'>
                         <Pagination
@@ -82,8 +88,8 @@ const Products = () => {
                             activeLinkClass="pageLinkActive"
                         />
                     </div>}
-                </Fragment>}
-        </Fragment>
+                </div>}
+        </div>
     )
 }
 

@@ -2,10 +2,13 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ordernow from "../../../images/Order-Now.png";
+import { useSelector } from 'react-redux'
+
 const Navbar = () => {
+    const { user, loading, isAuthenticated } = useSelector((state) => state.user);
     const content = [
         { name: "Home", link: "" },
-        { name: "Manu", link: "Manu" },
+        { name: "Menu", link: "products" },
         { name: "Login", link: "Login" },
         { name: "About", link: "about" }
     ];
@@ -23,7 +26,7 @@ const Navbar = () => {
     }
     return (
         <>
-            <div className="w-full h-28 flex justify-center items-center bg-inherit z-50">
+            <div className="w-full h-28 flex justify-center items-center bg-inherit">
                 <div className="w-[22rem] md:w-full h-28  flex justify-around items-center  text-black">
                     <div className=" p-3 m-1 md:hidden flex justify-center items-center">
                         <span className="material-symbols-outlined rounded-full p-1.5 hover:bg-slate-400 cursor-pointer transition duration-150 ease-in-out hover:-translate-y-2"
@@ -33,21 +36,35 @@ const Navbar = () => {
                         </span>
                     </div>
                     <div className="py-6 my-4 pl-3">
-                        <span id='font' className="font-sans text-[3rem] flex justify-center items-center logoFont">Oven <h1 className='logoFont text-yellow-500'>
+                        <span id='font' className="font-sans text-[3rem] flex justify-center items-center logoFont">Oven <h1 className='logoFont text-[#ffb448]'>
                             House
                         </h1></span>
                     </div>
                     <div className=" p-2 ">
                         <ul className="hidden md:flex justify-center items-center ">
-                            {content.map((item, index) => (
-                                <Link to={`/${item.link}`} key={index}>
-                                    <li className=" group p-3 text-2xl  tracking-[2px] transition duration-150 ease-in-out hover:-translate-y-2 cursor-pointer hover:text-[#c59b5c]" key={index}>
-                                        {/* <a href={`#${item.name}`}> */}
-                                        <span className=' group-hover:text-[#ffce85] font-medium'>{item.name}</span>
-                                        {/* </a> */}
+                            <Link to="/" >
+                                <li className=" group p-3 text-2xl  tracking-[2px] transition duration-150 ease-in-out hover:-translate-y-1 cursor-pointer hover:text-[#c59b5c]" >
+                                    <span className=' group-hover:text-[#ffce85] font-medium'>Home</span>
+                                </li>
+                            </Link>
+                            <Link to="/products" >
+                                <li className=" group p-3 text-2xl  tracking-[2px] transition duration-150 ease-in-out hover:-translate-y-1 cursor-pointer hover:text-[#c59b5c]" >
+                                    <span className=' group-hover:text-[#ffce85] font-medium'>Menu</span>
+                                </li>
+                            </Link>
+                            <Link to="/about" >
+                                <li className=" group p-3 text-2xl  tracking-[2px] transition duration-150 ease-in-out hover:-translate-y-1 cursor-pointer hover:text-[#c59b5c]" >
+                                    <span className=' group-hover:text-[#ffce85] font-medium'>About</span>
+                                </li>
+                            </Link>
+                            {
+                                !user &&
+                                <Link to="/Login" >
+                                    <li className=" group p-3 text-2xl  tracking-[2px] transition duration-150 ease-in-out hover:-translate-y-1 cursor-pointer hover:text-[#c59b5c]" >
+                                        <span className=' group-hover:text-[#ffce85] font-medium'>Login</span>
                                     </li>
                                 </Link>
-                            ))}
+                            }
                         </ul>
                     </div>
                     <div className="p-6 m-4">

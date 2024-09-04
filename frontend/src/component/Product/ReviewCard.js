@@ -13,10 +13,10 @@ const ReviewCard = ({ review }) => {
     };
     return (
         <div className="reviewCard">
-            <img src={profilePng} alt="User" />
-            <p>{review.name}</p>
+            <img src={profilePng} alt="User" width={100} />
+            <p className='text-2xl text-black p-0'>{review.name}</p>
             < Rating {...options} />
-            <span className="reviewCardComment">{review.comment}</span>
+            <span className="text-lg text-black p-0">{review.comment}</span>
         </div>
     );
 };
